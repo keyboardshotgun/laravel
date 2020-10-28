@@ -13,7 +13,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        return __METHOD__ . '은 Article 컬렉션을 조회 합니다.';
     }
 
     /**
@@ -23,7 +23,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        return __METHOD__ . '은 Article 컬렉션을 만들기 위한 폼을 반환 합니다.';
     }
 
     /**
@@ -34,7 +34,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return __METHOD__ . '은 Article 사용자 입력폼 데이터로 새로운 데이터 컬렉션을 생성 합니다.';
     }
 
     /**
@@ -45,7 +45,7 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        return __METHOD__ . '은 Article 기본키로 모델을 조회 합니다.';
     }
 
     /**
@@ -56,7 +56,7 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return __METHOD__ . '은 Article 사용자의 수정하기 위한 입력 폼을 반환 합니다. ';
     }
 
     /**
@@ -68,7 +68,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return __METHOD__ . '은 Article 사용자가 수정폼에 입력한 데이터를 기본키를 사용하여 업데이트 합니다. ';
     }
 
     /**
@@ -79,6 +79,6 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return __METHOD__ . '은 Article 기본키로 해당 데이터를 삭제 합니다.';
     }
 }
