@@ -55,9 +55,15 @@
                     </div>
 
                     <div class="ml-12">
+                        @if (!isset($name) && !isset($greeting))
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                             하하하하하하하하하
                         </div>
+                        @else
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <?= echo $greeting; ?> 이거는 호호호호호호
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
