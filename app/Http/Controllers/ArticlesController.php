@@ -34,7 +34,8 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        return __METHOD__ . '은 Article 사용자 입력폼 데이터로 새로운 데이터 컬렉션을 생성 합니다.';
+        echo 'echo----------'.$request;
+        return 'store는 사용자 입력폼 데이터로 새로운 데이터 컬렉션을 생성 합니다.';
     }
 
     /**
