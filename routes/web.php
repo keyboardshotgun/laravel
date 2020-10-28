@@ -22,8 +22,17 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::pattern('keyword','[0-9]{3}');
 
-Route::get('/test/{keyword?}', function ($keyword = '') {
+Route::pattern('keyword','[0-9]{3}'); // 라우터 파라메터 무결성 처리
+
+Route::get('/test/{keyword?}', function($keyword = ''){
     return $keyword; //echo 임
+});
+
+//라우터 데이터 바인딩
+Route::get('/data-bind', function(){
+    return view('test', [
+       'name' => 'foo',
+       'greeting' => 'Hello there'
+    ]);
 });
