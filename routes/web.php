@@ -22,6 +22,8 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/test/{keyword?}', function ($keyword = 'bar') {
-    return $keyword;
+Route::pattern('keyword','[0-9]{3}');
+
+Route::get('/test/{keyword?}', function ($keyword = '') {
+    return $keyword; //echo 임
 });
