@@ -13,7 +13,7 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
-Route::get('/', WelcomeController@index);
+Route::get('/', [WelcomeController::class, 'index']);
 
 
 Route::get('/test', function () {
