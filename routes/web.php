@@ -40,7 +40,7 @@ Route::get('/data-bind', function(){
 });
 
 Route::get('auth/login', function(){
-    $cred = ['email'=> 'first@user.com','password'=>'12345'];
+    $cred = ['email'=> 'first@user.com','password'=>'1234'];
     if( ! auth()->attempt($cred) )
     {
         return '로그인 정보가 정확하지 않습니다.';
