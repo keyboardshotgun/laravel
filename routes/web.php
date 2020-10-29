@@ -50,12 +50,15 @@ Route::get('auth/login', function(){
 });
 
 Route::get('protected', function(){
-    dump( session()->all() );
-    if(!auth()->all()){
+
+    dump(session()->all());
+
+    if(!auth()->check()){
         return '누구세요?';
     }else{
         return '어서오세요' . auth()->user()->name;
     }
+
 });
 
 Route::get('auth/logout', function(){
