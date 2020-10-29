@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Article;
+//use App\Models\Article;
 
 class ArticlesController extends Controller
 {
@@ -14,11 +14,11 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $testMan = Article::where('id','<>','1')->get();
+        $testManA = DB::table('articles')->where('id','<>','1')->get();
 
-        var_dump($testMan);
+        var_dump($testManA);
 
-        print_r($testMan);
+        print_r($testManA);
 
         return __METHOD__ . '은 Article 컬렉션을 조회 합니다.';
     }
