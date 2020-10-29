@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class ArticlesController extends Controller
 {
@@ -13,6 +14,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
+        dump(Article::get());
         return __METHOD__ . '은 Article 컬렉션을 조회 합니다.';
     }
 
