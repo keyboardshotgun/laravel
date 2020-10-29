@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
 {
@@ -13,6 +14,8 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         //$testManA = Article::get();
@@ -21,6 +24,16 @@ class ArticlesController extends Controller
         // Article::with('user')->get(); // user는 테이블 명이 아니라 Article 모델에 있는 user 메서드 이다.
         return view('board', compact('testManB'));
     }
+
+
+    public function custom_message()
+    {
+      return ['title.required' => '제목은 필수 입력 항목 입니다.',
+            'content.required' => '제목은 필수 입력 항목 입니다.',
+            'content.min' => '본문의 내용은 최소 :min 글자 이상 입력하여야 합니다.'
+      ];
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,8 +53,37 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        echo 'echo----------'.$request->nickname;
-        return 'store는 사용자 입력폼 데이터로 새로운 데이터 컬렉션을 생성 합니다.';
+//        dump($request->title);
+//        dump($request->content);
+//        $user = Auth::user();
+//        $id = Auth::id();
+//        dump(Auth::check() === false);
+//        dump($user.' / '.$id);
+          debug($request);
+          return;
+
+        if(Auth::check() === false){
+            return redirect('auth/login');
+        }else{
+            $ruels = [
+                'title' => ['required'],
+                'content'=> ['required','min:10'],
+            ];
+
+            $validator = \Validator::make($request->all(), $ruels, $this->custom_message());
+
+            if ($validator->fails()){
+                return back()->withErrors($validator)->withInput();
+            }
+
+            $article = App/Model/User::find(1)->articles()->create($request->all());
+
+            if(!$article){
+                return back()->with('flash_message', '글이 저장되지 않았습니다.')->withInput();
+            }
+
+            return redirect(route('articles.index'))->with('flash_message', '작성하신 글이 저장되었습니다.');
+        }
     }
 
     /**
