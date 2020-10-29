@@ -34,6 +34,17 @@
 </div>
 
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+    <ul>
+        @forelse($testManB as $test)
+            <li>{{ $test->title }}</li>
+            <li>{{ $test->user->name }}</li>
+        @empty
+            <li><p>글이 없습니다.</p></li>
+        @endforelse
+    </ul>
+</div>
+
+<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
 
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
