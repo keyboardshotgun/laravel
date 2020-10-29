@@ -14,7 +14,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        dump(Article::get());
+        $testMan = Article::where('id','<>','1');
+        dump($testMan);
         return __METHOD__ . '은 Article 컬렉션을 조회 합니다.';
     }
 
