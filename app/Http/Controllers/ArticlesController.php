@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-//use App\Models\Article;
+//use Illuminate\Support\Facades\DB;
+use App\Models\Article;
 
 class ArticlesController extends Controller
 {
@@ -15,10 +15,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $testManA = DB::table('articles')->where('id','<>','1')->get();
-        var_dump($testManA);
-
-        return __METHOD__ . '은 Article 컬렉션을 조회 합니다.';
+        $testManA = Article::get();
+        return view('test', compact($testManA));
     }
 
     /**
