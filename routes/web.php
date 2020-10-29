@@ -50,8 +50,7 @@ Route::get('auth/login', function(){
 });
 
 Route::get('protected', function(){
-    dump( seesion()->all() );
-
+    dump( session()->all() );
     if(!auth()->all()){
         return '누구세요?';
     }else{
