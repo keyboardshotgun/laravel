@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ArticlesController;
 
@@ -66,4 +67,8 @@ Route::get('auth/logout', function(){
      $printName = auth()->user()->name.' 님 또봐요';
      auth()->logout();
      return $printName;
+});
+
+DB::listen( function($query){
+    var_dump($query->sql);
 });
