@@ -15,11 +15,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $testManA = DB::table('articles')->where('id','<>','1')->get();
-
+        $testManA = DB::table('articles')->where('id','<>','1')->get()->items;
         var_dump($testManA);
-
-        print_r($testManA);
 
         return __METHOD__ . '은 Article 컬렉션을 조회 합니다.';
     }
