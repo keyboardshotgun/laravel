@@ -69,6 +69,8 @@ Route::get('auth/logout', function(){
      return $printName;
 });
 
+
+// 쿼리문 디버깅
 DB::listen( function($query){
     var_dump($query->sql);
 });

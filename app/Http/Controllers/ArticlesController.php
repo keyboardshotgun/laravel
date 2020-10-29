@@ -16,7 +16,10 @@ class ArticlesController extends Controller
     public function index()
     {
         $testManA = Article::get();
-        return view('test', compact('testManA'));
+        $testManB = Article::with('user')->get();
+        // orm 관계가 있는경우 1+N 쿼리 문제가 발생할 수 있다.
+        // Article::with('user')->get(); // user는 테이블 명이 아니라 Article 모델에 있는 user 메서드 이다.
+        return view('test', compact(['testManA','testManB']));
     }
 
     /**
