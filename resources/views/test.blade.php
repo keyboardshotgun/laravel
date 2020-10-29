@@ -21,6 +21,18 @@
     </style>
 </head>
 <body class="antialiased">
+
+<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+    <ul>
+        @forelse($testManA as $test)
+            <li>{{ $test->title }}</li>
+            <li>{{ $test->user->name }}</li>
+            @empty
+            <li><p>글이 없습니다.</p></li>
+        @endforelse
+    </ul>
+</div>
+
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
 
     @if (Route::has('login'))
