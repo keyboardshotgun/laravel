@@ -14,7 +14,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $testMan = Article::where('id','<>','1');
+        $testMan = Article::where('id','<>','1')->get();
 
         var_dump($testMan);
 
