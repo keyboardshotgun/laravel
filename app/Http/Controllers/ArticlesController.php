@@ -16,7 +16,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $testManA = Article::get();
-        return view('test', compact($testManA));
+        return view('test', compact('testManA'));
     }
 
     /**

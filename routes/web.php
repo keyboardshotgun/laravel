@@ -51,8 +51,8 @@ Route::get('auth/login', function(){
 
 Route::get('protected', function(){
 
-    dump(session()->all()); // dump 는 echo 랑 같은 기능인듯
-    dump(auth()->user()); // dump 는 echo 랑 같은 기능인듯
+    // dump(session()->all()); // dump 는 echo 랑 같은 기능인듯
+    //// dump(auth()->user()); // dump 는 echo 랑 같은 기능인듯
 
     if(!auth()->check()){
         return '누구세요?';
