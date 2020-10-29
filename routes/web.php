@@ -38,3 +38,29 @@ Route::get('/data-bind', function(){
        'greeting' => 'Hello there'
     ]);
 });
+
+Route::get('auth/login', function(){
+    $cred = ['email'=> 'first@user.com','password'=>'12345'];
+    if( ! auth()->attempt($cred) )
+    {
+        return '로그인 정보가 정확하지 않습니다.';
+    }else{
+        return redirect('protected');
+    }
+});
+
+Route::get('protected', function(){
+    dump( seesion()->all() );
+
+    if(!auth()->all()){
+        return '누구세요?';
+    }else{
+        return '어서오세요' . auth()->user()->name;
+    }
+});
+
+Route::get('auth/logout', function(){
+     $printName = auth()->user()->name.' 님 또봐요';
+     auth()->logout();
+     return $printName;
+});
